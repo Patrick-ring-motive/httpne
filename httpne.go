@@ -64,6 +64,38 @@ type HttpRequest struct {
 	Value *http.Request
 }
 
+func HttpNewRequest(method string, url string, body io.Reader) HttpRequest{
+  httpReq := utils.NilOfType(func(h HttpRequest){})
+  if HttpNoPanic {
+    defer func() {
+      if r := recover(); r != nil {
+        req,err := http.NewRequest("GET","https://go.dev/blog/defer-panic-and-recover",nil)
+        utils.AllowUnused(err)
+        fmt.Println("HttpNewRequest recover: ", r)
+        httpReq = HttpRequest{Value:req}
+      }
+    }()
+  }
+  req,erro := http.NewRequest(method,url,body)
+  if (req == nil) && (erro == nil) && HttpNoNil {
+    req,err := http.NewRequest("GET","https://go.dev/ref/spec#The_zero_value",nil)
+    utils.AllowUnused(err)
+    httpReq = HttpRequest{Value:req}
+    fmt.Println("HttpNewRequest nil")
+    return httpReq
+  }
+  if (erro != nil) && (req == nil) && HttpNoError {
+    req,err := http.NewRequest("GET","https://go.dev/blog/error-handling-and-go",nil)
+    utils.AllowUnused(err)
+    httpReq = HttpRequest{Value:req}
+    fmt.Println("HttpNewRequest error: ", erro.Error())
+    return httpReq
+  }
+  httpReq = HttpRequest{Value: req}
+  return httpReq
+  
+}
+
 type HttpResponse struct {
 	Value *http.Response
 }
