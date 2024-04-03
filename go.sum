@@ -1,4 +1,10 @@
-github.com/Patrick-ring-motive/ione v0.0.0-20240306170730-0dca8b115608 h1:qoATwVTVbFq/miDoLQh6ie66T/JGOjTaQfECnRIqmls=
-github.com/Patrick-ring-motive/ione v0.0.0-20240306170730-0dca8b115608/go.mod h1:IFoOn0nU9+ffnZ9xDAvYGs03ntEVBhDC/qZjgd+zBaw=
-github.com/Patrick-ring-motive/utils v0.0.0-20240305210412-adfa7fb2bc33 h1:+hR9jFqdlwPZKp7dSVoyxFQVDEf5pZqjj+bnV1dW7wU=
-github.com/Patrick-ring-motive/utils v0.0.0-20240305210412-adfa7fb2bc33/go.mod h1:DlxDMFh00WWZ7kD5tKwOXEs8bBeBY0FxkAMMFHNarfE=
+github.com/Patrick-ring-motive/deferrable v0.0.0-20240305173137-1b9086e4accc h1:iYYFMigEnH5+iSc8CPpdG3sJ3wJNlgFoDbqgtVZhhJA=
+github.com/Patrick-ring-motive/deferrable v0.0.0-20240305173137-1b9086e4accc/go.mod h1:CWVDI7DomKYCl8UPgCF1lipVeCXs6IwruMFDWZGBTXI=
+github.com/Patrick-ring-motive/ione v0.0.0-20240403154022-e2fe4108710b h1:bcQQA+irjMsFUGDJr02y2qxrWJoW7cpi51q2EeyPZeg=
+github.com/Patrick-ring-motive/ione v0.0.0-20240403154022-e2fe4108710b/go.mod h1:/Qljmb8pXwpAn23CRADe+gJmsOTlTVwPvZXJFian7j8=
+github.com/Patrick-ring-motive/traigo v0.0.0-20240305192820-c1dc619215e1 h1:geAyNgkgauTosXIsYaJlTYyci57WXWY8lwISL6zBbZ0=
+github.com/Patrick-ring-motive/traigo v0.0.0-20240305192820-c1dc619215e1/go.mod h1:nJGt5fp3HXWWdmYaYPsp02WdoW8UoYQVGbNIeIgarmo=
+github.com/Patrick-ring-motive/traigo v0.0.0-20240305194605-b1fd241ff6ff h1:p7GZB1gXfy8EikzaGCCMGxissXQhc1B/7asGGUPuAiY=
+github.com/Patrick-ring-motive/traigo v0.0.0-20240305194605-b1fd241ff6ff/go.mod h1:nJGt5fp3HXWWdmYaYPsp02WdoW8UoYQVGbNIeIgarmo=
+github.com/Patrick-ring-motive/utils v0.0.0-20240318150730-fe258b7060a9 h1:/0Lq7Ze8Q+ZmUXcrKNKpR620uL6gmMWswNxjYsgR/Zo=
+github.com/Patrick-ring-motive/utils v0.0.0-20240318150730-fe258b7060a9/go.mod h1:DlxDMFh00WWZ7kD5tKwOXEs8bBeBY0FxkAMMFHNarfE=
