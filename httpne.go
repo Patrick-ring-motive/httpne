@@ -134,7 +134,7 @@ func (httpRes HttpResponse) Body(ioReadCloser ...io.ReadCloser) IoReadCloser {
 	if len(ioReadCloser) > 0 {
 		httpRes.Value.Body = ioReadCloser[0]
 	}
-	return IoReadCloser{Value: &httpRes.Value.Body}
+	return IoReadCloser{Value: httpRes.Value.Body}
 }
 
 func (client HttpClient) Do(req HttpRequest, options ...HttpOptions) HttpResponse {
