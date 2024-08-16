@@ -233,87 +233,87 @@ func httpClientDo(h *[1]HttpResponse, client HttpClient, req HttpRequest, option
 }
 
 func (client HttpClient) Get(url string, options ...HttpOptions) HttpResponse {
-  h := &[1]HttpResponse{utils.NilOfType(func(h HttpResponse) {})}
-  httpClientGet(h, client, url, options...)
-  return h[0]
+	h := &[1]HttpResponse{utils.NilOfType(func(h HttpResponse) {})}
+	httpClientGet(h, client, url, options...)
+	return h[0]
 }
 
-func httpClientGet(h *[1]HttpResponse,client HttpClient,url string, options ...HttpOptions){
-  httpNoNil := true
-  httpNoError := true
-  httpNoPanic := true
-  if len(options) > 0 {
-    httpNoNil = options[0].HttpNoNil
-    httpNoError = options[0].HttpNoError
-    httpNoPanic = options[0].HttpNoPanic
-  }
-  if httpNoPanic {
-    defer func() {
-      if r := recover(); r != nil {
-        fmt.Println("579 HttpClient.Do panic: ", r)
-        status := fmt.Sprint("579 HttpClient.Do panic: ", r)
-        body := io.NopCloser(strings.NewReader(status))
-        h[0] = NewHttpResponse(
-          status,
-          579,
-          "HTTP/1.0",
-          1,
-          0,
-          make(http.Header),
-          body,
-          -1,
-          nil,
-          true,
-          true,
-          make(http.Header),
-          utils.NilOfType(func(t *http.Request) {}),
-          utils.NilOfType(func(t *tls.ConnectionState) {}),
-        )
-      }
-    }()
-  }
-    res, err := client.Value.Get(url)
-    h[0] = HttpResponse{Value: res}
-    if (res == nil) && (err == nil) && httpNoNil {
-      fmt.Println("559 HttpClient.Do nil")
-      status := "559 HttpClient.Do nil"
-      body := io.NopCloser(strings.NewReader(status))
-      h[0] = NewHttpResponse(
-        status,
-        559,
-        "HTTP/1.0",
-        1,
-        0,
-        make(http.Header),
-        body,
-        -1,
-        nil,
-        true,
-        true,
-        make(http.Header),
-        utils.NilOfType(func(t *http.Request) {}),
-        utils.NilOfType(func(t *tls.ConnectionState) {}),
-      )
-    }
-    if (err != nil) && ((res == nil) || (res.Body == nil)) && httpNoError {
-      fmt.Println("569 HttpClient.Do error: ", err.Error())
-      status := fmt.Sprint("569 HttpClient.Do error: ", err.Error())
-      body := io.NopCloser(strings.NewReader(status))
-      h[0] = NewHttpResponse(
-        status,
-        569,
-        "HTTP/1.0",
-        1,
-        0,
-        make(http.Header),
-        body,
-        -1,
-        nil,
-        true,
-        true,
-        make(http.Header),
-        utils.NilOfType(func(t *http.Request) {}),
-        utils.NilOfType(func(t *tls.ConnectionState) {}),
-      )
-    }
+func httpClientGet(h *[1]HttpResponse, client HttpClient, url string, options ...HttpOptions) {
+	httpNoNil := true
+	httpNoError := true
+	httpNoPanic := true
+	if len(options) > 0 {
+		httpNoNil = options[0].HttpNoNil
+		httpNoError = options[0].HttpNoError
+		httpNoPanic = options[0].HttpNoPanic
+	}
+	if httpNoPanic {
+		defer func() {
+			if r := recover(); r != nil {
+				fmt.Println("579 HttpClient.Do panic: ", r)
+				status := fmt.Sprint("579 HttpClient.Do panic: ", r)
+				body := io.NopCloser(strings.NewReader(status))
+				h[0] = NewHttpResponse(
+					status,
+					579,
+					"HTTP/1.0",
+					1,
+					0,
+					make(http.Header),
+					body,
+					-1,
+					nil,
+					true,
+					true,
+					make(http.Header),
+					utils.NilOfType(func(t *http.Request) {}),
+					utils.NilOfType(func(t *tls.ConnectionState) {}),
+				)
+			}
+		}()
+	}
+	res, err := client.Value.Get(url)
+	h[0] = HttpResponse{Value: res}
+	if (res == nil) && (err == nil) && httpNoNil {
+		fmt.Println("559 HttpClient.Do nil")
+		status := "559 HttpClient.Do nil"
+		body := io.NopCloser(strings.NewReader(status))
+		h[0] = NewHttpResponse(
+			status,
+			559,
+			"HTTP/1.0",
+			1,
+			0,
+			make(http.Header),
+			body,
+			-1,
+			nil,
+			true,
+			true,
+			make(http.Header),
+			utils.NilOfType(func(t *http.Request) {}),
+			utils.NilOfType(func(t *tls.ConnectionState) {}),
+		)
+	}
+	if (err != nil) && ((res == nil) || (res.Body == nil)) && httpNoError {
+		fmt.Println("569 HttpClient.Do error: ", err.Error())
+		status := fmt.Sprint("569 HttpClient.Do error: ", err.Error())
+		body := io.NopCloser(strings.NewReader(status))
+		h[0] = NewHttpResponse(
+			status,
+			569,
+			"HTTP/1.0",
+			1,
+			0,
+			make(http.Header),
+			body,
+			-1,
+			nil,
+			true,
+			true,
+			make(http.Header),
+			utils.NilOfType(func(t *http.Request) {}),
+			utils.NilOfType(func(t *tls.ConnectionState) {}),
+		)
+	}
 }
